@@ -18,3 +18,5 @@ position_smoothing_enabled = true
 
 [node name="Ground" parent="." instance=ExtResource("3_3ss6a")]
 position = Vector2(0, 198)
+
+[connection signal="bird_dead" from="Ground" to="." method="_on_ground_bird_dead"]

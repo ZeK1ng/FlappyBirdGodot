@@ -2,7 +2,7 @@ extends CharacterBody2D
 var gravity = 700
 var jump_speed = -300
 var rotate_speed = 2
-var started = false
+
 @onready var animation_player = $AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
@@ -13,11 +13,11 @@ func _ready():
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("jump"):
-		if !started:
-			started = true
+		if !Globals.isStarted:
+			Globals.isStarted = true
 			animation_player.play("fly")
 		jump()
-	if !started:
+	if !Globals.isStarted:
 		return
 	velocity.y += gravity*delta
 

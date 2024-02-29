@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://hsc2n0kd3jjw"]
+
+[ext_resource type="Script" path="res://PipeManager.gd" id="1_ecaem"]
+
+[node name="PipeManager" type="Node2D"]
+script = ExtResource("1_ecaem")
+
+[node name="SpawnTimer" type="Timer" parent="."]

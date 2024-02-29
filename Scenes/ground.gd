@@ -31,7 +31,7 @@ func _on_ground_2_body_entered(body):
 	process_bird_death(body)
 
 func process_bird_death(body):
-	(body as Bird).death()
+	bird_dead.emit()
 	stop()
 	
 func stop():

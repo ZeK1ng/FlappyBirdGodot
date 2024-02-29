@@ -9,3 +9,8 @@ var groundSpeed = 200:
 		return groundSpeed
 	set(value):
 		groundSpeed= value
+var score=0:
+	get:
+		return score
+	set(value):
+		score = value

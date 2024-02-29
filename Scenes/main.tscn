@@ -1,12 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://drv70vbtlddrt"]
+[gd_scene load_steps=7 format=3 uid="uid://drv70vbtlddrt"]
 
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_axifs"]
 [ext_resource type="Texture2D" uid="uid://bwf5i0qyei8n0" path="res://Assets/background-day.png" id="1_eh18r"]
 [ext_resource type="PackedScene" uid="uid://du4aq05mmfeoa" path="res://Scenes/bird.tscn" id="2_pt0eu"]
+[ext_resource type="PackedScene" uid="uid://desc03prlfsdv" path="res://Scenes/ui.tscn" id="2_svtra"]
 [ext_resource type="PackedScene" uid="uid://djpgo5k604b3k" path="res://Scenes/ground.tscn" id="3_3ss6a"]
+[ext_resource type="PackedScene" uid="uid://hsc2n0kd3jjw" path="res://Scripts/pipe_manager.gd.tscn" id="5_rki1q"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_axifs")
+
+[node name="UI" parent="." instance=ExtResource("2_svtra")]
 
 [node name="background" type="Sprite2D" parent="."]
 texture = ExtResource("1_eh18r")
@@ -19,4 +23,8 @@ position_smoothing_enabled = true
 [node name="Ground" parent="." instance=ExtResource("3_3ss6a")]
 position = Vector2(0, 198)
 
+[node name="PipeManager" parent="." instance=ExtResource("5_rki1q")]
+
 [connection signal="bird_dead" from="Ground" to="." method="_on_ground_bird_dead"]
+[connection signal="bird_crashed" from="PipeManager" to="." method="_on_pipe_manager_bird_crashed"]
+[connection signal="scored" from="PipeManager" to="." method="_on_pipe_manager_scored"]
